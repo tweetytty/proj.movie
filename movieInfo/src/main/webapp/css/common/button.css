@@ -1,0 +1,89 @@
+@CHARSET "UTF-8";
+
+/*** button style ***/
+.btn_popup_close {
+	text-align: center; width : 21px;
+	height: 21px;
+	width: 21px;
+}
+
+.button_pop{
+	color: #ecf0f1;
+	font-size: 12px;
+	text-decoration: none;
+	text-align: center;
+	display: inline-block;
+	width: 116px;
+	height: 32px;
+	line-height: 32px;
+	margin: 0 auto;
+	cursor: pointer;
+	background: url(../../images/common/btn_bg_normal_g.png) no-repeat;
+	font-weight: bold;
+}
+
+.button_pop2{
+	color: #ecf0f1;
+	font-size: 12px;
+	text-decoration: none;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	width: 116px;
+	height: 32px;
+	margin: 0 auto;
+	cursor: pointer;
+	background: url(../../images/common/btn_bg_normal_g.png) no-repeat;
+	font-weight: bold;
+}
+
+.button_pop_center{
+    color: #ecf0f1;
+    font-size: 12px;
+    text-decoration: none;
+    text-align: center;
+    width: 116px;
+    height: 32px;
+    line-height: 32px;
+    margin: 0 auto;
+    cursor: pointer;
+    background: url(../../images/common/btn_bg_normal_g.png) no-repeat;
+}
+
+.button_pop:hover, .button_pop_center:hover {background: url(../../images/common/btn_bg_over_g.png) no-repeat;}
+.button_pop:active, .button_pop_center:active {background: url(../../images/common/btn_bg_pressed_g.png) no-repeat;}
+.button_pop:now, .button_pop_center:now {background: url(../../images/common/btn_bg_selected_g.png) no-repeat;}
+
+.button_pop2:hover, .button_pop_center:hover {background: url(../../images/common/btn_bg_over_g.png) no-repeat;}
+.button_pop2:active, .button_pop_center:active {background: url(../../images/common/btn_bg_pressed_g.png) no-repeat;}
+.button_pop2:now, .button_pop_center:now {background: url(../../images/common/btn_bg_selected_g.png) no-repeat;}
+
+.button_pop_disable{
+	cursor: default;
+	color: #ecf0f1;
+	font-size: 12px;
+	text-decoration: none;
+	text-align: center;
+	display: inline-block;
+	width: 116px;
+	height: 32px;
+	line-height: 32px;
+	margin: 0 auto;
+	background: url(../../images/common/btn_bg_disabled_g.png) no-repeat;
+	font-weight: bold;
+}
+
+/* Button Popup Window Close */
+.btn_popup_close {
+	float: left;
+	width: 100%;
+	height: 100%;
+	background: url(../../images/common/btn_close_normal.png) no-repeat;
+	cursor: pointer;
+	display: block;
+}
+/* [dir=rtl] .btn_popup_close a {float:right; width:22px;height:22px;background:url(../../images/common/btn_popup_close_n.png)  no-repeat;cursor:pointer;display: block;} */
+
+.btn_popup_close:hover {background: url(../../images/common/btn_close_over.png) no-repeat;}
+.btn_popup_close:active {background: url(../../images/common/btn_close_pressed.png) no-repeat;}
+.btn_popup_close:now {background: url(../../images/common/btn_close_selected.png) no-repeat;}

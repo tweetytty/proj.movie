@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	                             http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+
+    <bean id="marshallingConverter"
+        class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
+        <constructor-arg ref="jaxb2Marshaller" />
+        <property name="supportedMediaTypes" value="application/xml" /> 
+    </bean>
+
+    <bean id="atomConverter"
+        class="org.springframework.http.converter.feed.AtomFeedHttpMessageConverter">
+        <property name="supportedMediaTypes" value="application/atom+xml" />
+    </bean>
+
+    <bean id="jsonConverter"
+        class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>application/json</value>
+                <value>text/html</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Client -->
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+        <property name="messageConverters">
+            <list>
+                <ref bean="marshallingConverter" />
+                <ref bean="atomConverter" />
+                <ref bean="jsonConverter" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="jaxb2Marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+        <property name="classesToBeBound">
+            <list>
+                <value>com.sm.movieinfo.movie.vo.MovieVO</value>
+            </list>
+        </property>
+        <property name="marshallerProperties">
+            <map>
+                <entry>
+                    <key>
+                        <util:constant static-field="javax.xml.bind.helpers.AbstractMarshallerImpl.JAXB _FORMATTED_OUTPUT" />
+                    </key>
+                    <value type="boolean">true</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+</beans>

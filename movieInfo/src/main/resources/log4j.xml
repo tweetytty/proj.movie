@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- Appenders -->
+	<appender name="movieInfo" class="org.apache.log4j.RollingFileAppender">
+        <param name="file" value="D:/movieInfo/movieInfologs/movieInfo.log"/>
+        <param name="maxFileSize" value="100MB"/>
+        <param name="maxBackupIndex" value="30"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout"> 
+            <param name="ConversionPattern" value="%X{uid} %d %-5p [%c]%M:%L %m%n"/> 
+        </layout>
+    </appender>
+	
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%X{uid} %d %-5p [%c]%M:%L %m%n"/>
+		</layout>
+	</appender>
+	
+	<!-- Application Loggers -->
+	<logger name="com.sm.movieinfo">
+		<level value="debug" />
+        <appender-ref ref="movieInfo"/>
+	</logger>
+	
+	<!-- 3rdparty Loggers -->
+	<logger name="org.apache.http.wire">
+	   <level value="error" />
+	</logger>
+	
+	<logger name="jdbc.sqlonly" additivity="false">
+		<level value="info" />
+		<appender-ref ref="console" />
+	</logger>
+	
+	<logger name="jdbc.resultsettable" additivity="false">
+		<level value="info" />
+		<appender-ref ref="console" />
+	</logger>
+	
+	<!--  
+	<logger name="org.springframework.core">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.springframework.beans">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.springframework.context">
+		<level value="info" />
+	</logger>
+
+	<logger name="org.springframework.web">
+		<level value="info" />
+	</logger>
+	-->
+
+	<!-- Root Logger -->
+	<root>
+		<priority value="off" />
+		<appender-ref ref="console" />
+	</root>
+	
+</log4j:configuration>

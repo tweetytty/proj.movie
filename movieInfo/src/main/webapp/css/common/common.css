@@ -1,0 +1,161 @@
+::selection {
+    background:transparent;
+}
+::-moz-selection {
+    background:transparent;
+}
+::-webkit-selection {
+    background:transparent;
+}
+
+/* initialization */
+* {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+a {text-decoration: none; }
+
+li {
+    list-style: none;
+}
+
+@keyframes ani-slow-show {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+img {
+    border: 0;
+    animation-name: ani-slow-show;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
+
+strong {
+    font-weight: bold;
+}
+
+/* CSS Document */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #000;
+    font-size: 12px;
+    font-family:arial,tahoma;
+    color: #9a9ea2;
+}
+
+/* Scroll bar style for Chrome */
+::-webkit-scrollbar {
+    width: 17px;
+    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3);
+}
+::-webkit-scrollbar-corner {
+background-color: #30373e;
+}
+/* Vertical */
+::-webkit-scrollbar-thumb:vertical {
+    border-radius: 0px;
+    border: 0px solid #262d34;
+    background:#262d34 url('../../images/common/scroll_thumb_n.png') repeat-y center center;
+}
+::-webkit-scrollbar-thumb:vertical:hover {background:#262d34 url('../../images/common/scroll_thumb_o.png') repeat-y center center;}
+::-webkit-scrollbar-thumb:vertical:active {background:#262d34 url('../../images/common/scroll_thumb_p.png') repeat-y center center;}
+
+::-webkit-scrollbar-button:vertical:start:decrement {display: block; height: 16px; background:#22292f url('../../images/common/scroll_up_n.png') no-repeat center center;}
+::-webkit-scrollbar-button:vertical:start:decrement:hover { background:#22292f url('../../images/common/scroll_up_o.png') no-repeat center center;}
+::-webkit-scrollbar-button:vertical:start:decrement:active { background:#22292f url('../../images/common/scroll_up_p.png') no-repeat center center;}
+::-webkit-scrollbar-button:vertical:end:increment {display: block; height: 16px; background:#22292f url('../../images/common/scroll_down_n.png') no-repeat center center;}
+::-webkit-scrollbar-button:vertical:end:increment:hover {background:#22292f url('../../images/common/scroll_down_o.png') no-repeat center center;}
+::-webkit-scrollbar-button:vertical:end:increment:active {background:#22292f url('../../images/common/scroll_down_p.png') no-repeat center center;}
+::-webkit-scrollbar-track:vertical {
+    border-radius: 0px;
+    background:#262d34 url('../../images/common/scroll_track.png') repeat-y center center;
+    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3); 
+}
+
+/* Horizontal */
+::-webkit-scrollbar-thumb:horizontal {
+    border-radius: 0px;
+    border: 0px solid #262d34;
+    background:#262d34 url('../../images/common/scrollh_thumb_n.png') repeat-x center center;
+}
+::-webkit-scrollbar-thumb:horizontal:hover {background:#262d34 url('../../images/common/scrollh_thumb_o.png') repeat-x center center;}
+::-webkit-scrollbar-thumb:horizontal:active {background:#262d34 url('../../images/common/scrollh_thumb_p.png') repeat-x center center;}
+::-webkit-scrollbar-button {
+    border-radius: 0px;
+}
+::-webkit-scrollbar-button:horizontal:start:decrement {display: block; height: 16px; background:#22292f url('../../images/common/scrollh_left_n.png') no-repeat center center;}
+::-webkit-scrollbar-button:horizontal:start:decrement:hover { background:#22292f url('../../images/common/scrollh_left_o.png') no-repeat center center;}
+::-webkit-scrollbar-button:horizontal:start:decrement:active { background:#22292f url('../../images/common/scrollh_left_p.png') no-repeat center center;}
+::-webkit-scrollbar-button:horizontal:end:increment {display: block; height: 16px; background:#22292f url('../../images/common/scrollh_right_n.png') no-repeat center center;}
+::-webkit-scrollbar-button:horizontal:end:increment:hover {background:#22292f url('../../images/common/scrollh_right_o.png') no-repeat center center;}
+::-webkit-scrollbar-button:horizontal:end:increment:active {background:#22292f url('../../images/common/scrollh_right_p.png') no-repeat center center;}
+::-webkit-scrollbar-track:horizontal {
+    border-radius: 0px;
+    background:#262d34 url('../../images/common/scrollh_track.png') repeat-y center center;
+    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.3); 
+}
+
+.now {
+    background-color: #cf0652 !important;
+}
+
+.ssse_ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+input[type='checkbox'] {
+    /* Hide the input, but have it still be clickable */
+    display:none;
+}
+
+input[type='checkbox'] + label {
+    margin: 0;
+    clear: none;
+
+    /* Left padding makes room for image */
+    padding: 5px 0 4px 24px;
+
+    /* Make look clickable because they are */
+    cursor: pointer;
+
+    background: url(../../images/popup/checkbox_normal.png) left center no-repeat;
+}
+
+input[type='checkbox'][disabled][lock] + label {
+    margin: 0;
+    clear: none;
+
+    /* Left padding makes room for image */
+    padding: 3px 0 4px 24px;
+
+    /* Make look clickable because they are */
+    cursor: default;
+
+    background: url(../../images/common/check_lock.png) 0 0px no-repeat;
+}
+
+input[type='checkbox']:checked + label {
+    background-image: url(../../images/popup/checkbox_pressed.png);
+}
+
+input[type='checkbox']:disabled + label {
+    background-image: url(../../images/popup/checkbox_disabled.png);
+}
+
+:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
+.cursor_p{
+    cursor: pointer;
+}
