@@ -20,6 +20,10 @@ var menu = {
 				$(this).unbind('click').click(function(){
 					MovieManager.deleteBookmarkAll();
 				});
+			}else if(id == "bookmark"){
+				$(this).unbind('click').click(function(){
+					MovieManager.goBookmark();
+				});
 			}
 		});
 

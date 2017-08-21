@@ -17,15 +17,22 @@
         <result property="story" column="story"/>
         <result property="img" column="img"/>
         <result property="ctime" column="ctime"/>
+        <result property="order" column="order"/>
     </resultMap>
  
-    <select id="getMovieAll" resultMap="movieResult">
+    <select id="getMovieAll" resultMap="movieResult" parameterType="MovieVO">
         SELECT
             movie_id, title, open_date, age, duration,
             genre, director, actor, nation, grades, story, img, ctime
         FROM
             tb_movie
-         ORDER BY movie_id desc
+        <if test="order == 0"> order BY ctime desc</if>
+        <if test="order == 1"> order BY ctime asc</if>
+        <if test="order == 2"> order BY grades desc</if>
+        <if test="order == 3"> order BY grades asc</if>
+        <if test="order == 4"> order BY title desc</if>
+        <if test="order == 5"> order BY title asc</if>
+         
     </select>
  
     <select id="getMovie" parameterType="MovieVO" resultMap="movieResult">

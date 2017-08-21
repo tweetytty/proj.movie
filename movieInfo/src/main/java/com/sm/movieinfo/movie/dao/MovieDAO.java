@@ -6,7 +6,7 @@ import com.sm.movieinfo.movie.vo.MovieVO;
 
 public interface MovieDAO {
 
-	List<MovieVO> getMovieAll();
+	List<MovieVO> getMovieAll(MovieVO movieVO);
 
 	MovieVO getMovie(MovieVO movieVO);
 

@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
-/*** template container ***/
-.container_template{
+/*** topContainer ***/
+.topContainer{
 	width: calc(100% - 250px);
 	height: 100%;
 	min-width: 950px;
@@ -11,19 +11,19 @@
 	box-sizing: border-box;
 }
 
-/*** top bar in template container***/
+/*** top bar***/
 .top_content1{
 	height: 75px;
 }
 
-.select_templete{
+.select_bookmakr_order{
 	width: calc(100% - 116px);
-	padding: 27px 0 24px 0;
+	padding: 10px 0 20px 0;
 	box-sizing: border-box;
 	font-family: arial,tahoma;
 }
 
-.select_templete select{
+.select_bookmakr_order select{
 	width: auto;
 	height: 24px;
 	min-width: 114px;
@@ -33,7 +33,7 @@
 	display: table;
 	float: left;
 	width: 350px;
-	padding: 22px 0 21px 0;
+	padding: 10px 0 21px 0;
 	box-sizing: border-box;
 }
 
@@ -63,8 +63,8 @@ input {
 	height: 69px;
 }
 
-/*** main template ***/
-#divTemplate{
+/*** mainContainer ***/
+#mainContainer{
 	float: left;
 	position: relative;
 	width: 100%;

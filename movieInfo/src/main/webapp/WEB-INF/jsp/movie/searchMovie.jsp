@@ -37,7 +37,7 @@
 				</nav>
 			</div>
 		</div>
-		<div class="container_template">
+		<div class="topContainer">
 			<div id="divSearchMovie">
 				<br><h1>Please search movie.</h1><br>
 				<div class="next_content">
@@ -45,7 +45,20 @@
 					<span class="button_text cursor_p" id="searchMovieButton" title="검색">검색</span>
 				</div>
 			</div>
-			<div id="divTemplate">
+			<div id="divOrderMovie" style="display:none;">
+				<br><h1>[ Bookmark ]</h1><br>
+				<div class="select_bookmakr_order">
+					<select id="orderBookmark">
+						 <option value="0" selected>최신 등록 순</option>
+						 <option value="1">오래 된 등록 순</option>
+						 <option value="2">평점 높은 순</option>
+						 <option value="3">평점 낮은 순</option>
+						 <option value="4">제목 오름차순</option>
+						 <option value="5">제목 내림차순</option>
+					</select>
+				</div>
+			</div>
+			<div id="mainContainer">
 			</div>
 		</div>
 	</section>

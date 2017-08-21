@@ -35,10 +35,20 @@ var ServerRequest = {
 			if(result == RESCODE_SUCCESS){
 				ServerRequest.getUserBookMark();
 				
+				var currentPage = 'search';
+				if($("#divSearchMovie").css('display') == 'none')
+					currentPage = 'bookmark';
+				
 				if(isCheck){
 					comm.alert('북마크 등록이 완료되었습니다.');
 				}else{
-					comm.alert('북마크 삭제가 완료되었습니다.');
+					if(currentPage == 'search'){
+						comm.alert('북마크 삭제가 완료되었습니다.');
+					}else{
+						comm.alert('북마크 삭제가 완료되었습니다.', function(){
+							MovieManager.goBookmark();
+						});
+					}
 				}
 				
 			}else{
@@ -55,13 +65,26 @@ var ServerRequest = {
 	},
 	
 	
-	getUserBookMark : function(){
-		var urlPath = commCtxPath + "/rest/movieAll";
+	getUserBookMark : function(order){
+		var orderType = 0;
+    	if(order == undefined)
+    		orderType = 0;
+    	else
+    		orderType = order;
+    	
+    	var urlPath = commCtxPath + "/rest/movieAll/" + orderType;
     	
 		comm.rest(urlPath, 'GET', null, function(json) {
 			var result = json.resCode;
 			if(result == RESCODE_SUCCESS){
-				userBookMark = json.data;
+				if(json.data.list.length == 0)
+					userBookMark = '';
+				else
+					userBookMark = json.data;
+				
+				if(order != undefined)
+					MovieManager.goBookmark();
+				
 			}else{
 				console.log("- getMovieList error: " + json.resMsgDev);
 			}

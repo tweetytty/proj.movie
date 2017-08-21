@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,13 +29,15 @@ public class MovieRestController {
     @Resource private MovieService movieService;
       
     
-    @RequestMapping(value = "/movieAll", method = RequestMethod.GET,  headers=JsonCode.STRING_HEADER_ACCEPT_APPLICATION_JSON)
-    public @ResponseBody JsonVO getMovieAll(@RequestHeader(JsonCode.STRING_HEADER_VERSION) String restVersion, HttpServletRequest request) throws Exception {
+    @RequestMapping(value = "/movieAll/{order}", method = RequestMethod.GET,  headers=JsonCode.STRING_HEADER_ACCEPT_APPLICATION_JSON)
+    public @ResponseBody JsonVO getMovieAll(@RequestHeader(JsonCode.STRING_HEADER_VERSION) String restVersion, HttpServletRequest request, @PathVariable int order) throws Exception {
         logger.info("getMovieAll Controller");
  
         JsonVO jsonVO = new JsonVO(restVersion,JsonCode.RESCODE_SUCCESS);
         List<MovieVO> movieList = new ArrayList<MovieVO>();
-        movieList = movieService.getMovieAll();
+        MovieVO param = new MovieVO();
+        param.setOrder(order);
+        movieList = movieService.getMovieAll(param);
         
         jsonVO.setData("list", movieList);
         return jsonVO;

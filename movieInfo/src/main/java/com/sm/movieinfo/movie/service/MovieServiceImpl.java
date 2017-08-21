@@ -19,8 +19,8 @@ public class MovieServiceImpl implements MovieService {
     private static final Logger logger = LoggerFactory.getLogger(MovieServiceImpl.class);
 
 	@Override
-	public List<MovieVO> getMovieAll() throws Exception {
-		return movieDAO.getMovieAll();
+	public List<MovieVO> getMovieAll(MovieVO movieVO) throws Exception {
+		return movieDAO.getMovieAll(movieVO);
 	}
 
 	@Override

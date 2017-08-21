@@ -1,7 +1,5 @@
 package com.sm.movieinfo.movie.vo;
 
-import net.sf.json.JSONObject;
-
 public class MovieVO {
 	
 	Integer movieId;
@@ -17,6 +15,7 @@ public class MovieVO {
 	String story;
 	String img;
 	Integer ctime;
+	Integer order;
 	
 	public MovieVO() {
 		this.setMovieId(0);
@@ -28,14 +27,26 @@ public class MovieVO {
         this.setDirector("");
         this.setActor("");
         this.setNation("");
-        this.setGrades(0.0);
+        this.setGrades(0.0d);
         this.setStory("");
         this.setImg("");
-        this.setCtime(-1);
         this.setCtime(0);
+        this.setOrder(0);
     }
 
 	
+
+	public Integer getOrder() {
+		return order;
+	}
+
+
+
+	public void setOrder(Integer order) {
+		this.order = order;
+	}
+
+
 
 	public Integer getMovieId() {
 		return movieId;
