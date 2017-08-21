@@ -30,3 +30,8 @@
 <script type="text/javascript" src="js/movie/common/utils.js"></script>
 <script type="text/javascript" src="js/movie/common/serverRequestManager.js"></script>
 <script type="text/javascript" src="js/movie/movieManager.js"></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+	var commCtxPath	= "<c:out value='/movieInfo'/>";		// 해당 컨텍스트 패스
+	var userBookMark = [];
+</SCRIPT>

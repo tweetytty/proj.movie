@@ -19,8 +19,8 @@ public class MovieServiceImpl implements MovieService {
     private static final Logger logger = LoggerFactory.getLogger(MovieServiceImpl.class);
 
 	@Override
-	public List<MovieVO> getMovieList() throws Exception {
-		return movieDAO.getMovieList();
+	public List<MovieVO> getMovieAll() throws Exception {
+		return movieDAO.getMovieAll();
 	}
 
 	@Override
@@ -41,6 +41,11 @@ public class MovieServiceImpl implements MovieService {
 	@Override
 	public int deleteMovie(MovieVO movieVO) {
 		return movieDAO.deleteMovie(movieVO);
+	}
+
+	@Override
+	public int deleteMovieAll() throws Exception {
+		return movieDAO.deleteMovieAll();
 	}
    
 

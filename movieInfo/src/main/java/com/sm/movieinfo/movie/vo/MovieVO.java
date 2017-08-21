@@ -4,21 +4,22 @@ import net.sf.json.JSONObject;
 
 public class MovieVO {
 	
-	private Integer movieId;
-	private String title;
-	private String openDate;
-	private String age;
-	private String duration;
-	private String genre;
-	private String director;
-	private String actor;
-	private String nation;
-	private Integer grades;
-	private String story;
-	private String img;
-	private Integer ctime;
+	Integer movieId;
+	String title;
+	String openDate;
+	String age;
+	String duration;
+	String genre;
+	String director;
+	String actor;
+	String nation;
+	Double grades;
+	String story;
+	String img;
+	Integer ctime;
 	
 	public MovieVO() {
+		this.setMovieId(0);
         this.setTitle("");
         this.setOpenDate("");
         this.setAge("");
@@ -27,48 +28,24 @@ public class MovieVO {
         this.setDirector("");
         this.setActor("");
         this.setNation("");
-        this.setGrades(10);
+        this.setGrades(0.0);
         this.setStory("");
         this.setImg("");
         this.setCtime(-1);
+        this.setCtime(0);
     }
 
+	
 
 	public Integer getMovieId() {
 		return movieId;
 	}
 
 
+
 	public void setMovieId(Integer movieId) {
 		this.movieId = movieId;
 	}
-
-
-	public Integer getCtime() {
-		return ctime;
-	}
-
-
-
-
-	public void setCtime(Integer ctime) {
-		this.ctime = ctime;
-	}
-
-
-
-
-	public String getImg() {
-		return img;
-	}
-
-
-
-
-	public void setImg(String img) {
-		this.img = img;
-	}
-
 
 
 
@@ -78,11 +55,9 @@ public class MovieVO {
 
 
 
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 
 
 
@@ -92,11 +67,9 @@ public class MovieVO {
 
 
 
-
 	public void setOpenDate(String openDate) {
 		this.openDate = openDate;
 	}
-
 
 
 
@@ -106,11 +79,9 @@ public class MovieVO {
 
 
 
-
 	public void setAge(String age) {
 		this.age = age;
 	}
-
 
 
 
@@ -120,11 +91,9 @@ public class MovieVO {
 
 
 
-
 	public void setDuration(String duration) {
 		this.duration = duration;
 	}
-
 
 
 
@@ -134,11 +103,9 @@ public class MovieVO {
 
 
 
-
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
-
 
 
 
@@ -148,11 +115,9 @@ public class MovieVO {
 
 
 
-
 	public void setDirector(String director) {
 		this.director = director;
 	}
-
 
 
 
@@ -162,11 +127,9 @@ public class MovieVO {
 
 
 
-
 	public void setActor(String actor) {
 		this.actor = actor;
 	}
-
 
 
 
@@ -176,25 +139,21 @@ public class MovieVO {
 
 
 
-
 	public void setNation(String nation) {
 		this.nation = nation;
 	}
 
 
 
-
-	public Integer getGrades() {
+	public Double getGrades() {
 		return grades;
 	}
 
 
 
-
-	public void setGrades(Integer grades) {
+	public void setGrades(Double grades) {
 		this.grades = grades;
 	}
-
 
 
 
@@ -204,17 +163,32 @@ public class MovieVO {
 
 
 
-
 	public void setStory(String story) {
 		this.story = story;
 	}
 
 
 
+	public String getImg() {
+		return img;
+	}
 
-	public String toString() {
-        JSONObject jsonObj = JSONObject.fromObject(this);
-        return jsonObj.toString();
-    }
+
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+
+
+	public Integer getCtime() {
+		return ctime;
+	}
+
+
+
+	public void setCtime(Integer ctime) {
+		this.ctime = ctime;
+	}
 	
 }

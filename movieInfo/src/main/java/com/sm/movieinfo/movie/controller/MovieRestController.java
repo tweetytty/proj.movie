@@ -1,19 +1,19 @@
 package com.sm.movieinfo.movie.controller;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sm.movieinfo.common.vo.JsonVO;
@@ -28,20 +28,31 @@ public class MovieRestController {
     @Resource private MovieService movieService;
       
     
-    @RequestMapping(value = "/movielist", method = RequestMethod.GET,  headers=JsonCode.STRING_HEADER_ACCEPT_APPLICATION_JSON)
-    public @ResponseBody JsonVO movielist(@RequestHeader(JsonCode.STRING_HEADER_VERSION) String restVersion, HttpServletRequest request) throws ServletException, IOException, Exception {
-        logger.info("movielist Controller");
+    @RequestMapping(value = "/movieAll", method = RequestMethod.GET,  headers=JsonCode.STRING_HEADER_ACCEPT_APPLICATION_JSON)
+    public @ResponseBody JsonVO getMovieAll(@RequestHeader(JsonCode.STRING_HEADER_VERSION) String restVersion, HttpServletRequest request) throws Exception {
+        logger.info("getMovieAll Controller");
  
         JsonVO jsonVO = new JsonVO(restVersion,JsonCode.RESCODE_SUCCESS);
         List<MovieVO> movieList = new ArrayList<MovieVO>();
-        movieList = movieService.getMovieList();
+        movieList = movieService.getMovieAll();
         
         jsonVO.setData("list", movieList);
         return jsonVO;
     }
     
+    @RequestMapping(value = "/movieAll", method = RequestMethod.DELETE,  headers=JsonCode.STRING_HEADER_ACCEPT_APPLICATION_JSON)
+    public @ResponseBody JsonVO deleteMovieAll(@RequestHeader(JsonCode.STRING_HEADER_VERSION) String restVersion, HttpServletRequest request) throws Exception {
+        logger.info("deleteMovieAll Controller");
+ 
+        JsonVO jsonVO = new JsonVO(restVersion,JsonCode.RESCODE_SUCCESS);
+        int result = movieService.deleteMovieAll();
+        
+        jsonVO.setData("result", result);
+        return jsonVO;
+    }
+    
     @RequestMapping(value = "/movie", method = RequestMethod.GET,  headers=JsonCode.STRING_HEADER_ACCEPT_APPLICATION_JSON)
-    public @ResponseBody JsonVO getMovie(@RequestHeader(JsonCode.STRING_HEADER_VERSION) String restVersion, HttpServletRequest request, MovieVO vo) throws ServletException, IOException, Exception {
+    public @ResponseBody JsonVO getMovie(@RequestHeader(JsonCode.STRING_HEADER_VERSION) String restVersion, @RequestBody MovieVO vo) throws Exception {
         logger.info("getMovie Controller");
  
         JsonVO jsonVO = new JsonVO(restVersion,JsonCode.RESCODE_SUCCESS);
@@ -52,9 +63,20 @@ public class MovieRestController {
         return jsonVO;
     }
     
+    @RequestMapping(value = "/movie", method = RequestMethod.POST,  headers=JsonCode.STRING_HEADER_ACCEPT_APPLICATION_JSON)
+    public @ResponseBody JsonVO insertMovie(@RequestHeader(JsonCode.STRING_HEADER_VERSION) String restVersion, @RequestBody MovieVO vo) throws Exception {
+        logger.info("insertMovie Controller");
+ 
+        JsonVO jsonVO = new JsonVO(restVersion,JsonCode.RESCODE_SUCCESS);
+        int result = movieService.insertMovie(vo);
+        
+        jsonVO.setData("result", result);
+        return jsonVO;
+    }
+    
     @RequestMapping(value = "/movie", method = RequestMethod.PUT,  headers=JsonCode.STRING_HEADER_ACCEPT_APPLICATION_JSON)
-    public @ResponseBody JsonVO putMovie(@RequestHeader(JsonCode.STRING_HEADER_VERSION) String restVersion, HttpServletRequest request, MovieVO vo) throws ServletException, IOException, Exception {
-        logger.info("getMovie Controller");
+    public @ResponseBody JsonVO updateMovie(@RequestHeader(JsonCode.STRING_HEADER_VERSION) String restVersion, @RequestBody MovieVO vo) throws Exception {
+        logger.info("updateMovie Controller");
  
         JsonVO jsonVO = new JsonVO(restVersion,JsonCode.RESCODE_SUCCESS);
         int result = movieService.updateMovie(vo);
@@ -64,8 +86,8 @@ public class MovieRestController {
     }
     
     @RequestMapping(value = "/movie", method = RequestMethod.DELETE,  headers=JsonCode.STRING_HEADER_ACCEPT_APPLICATION_JSON)
-    public @ResponseBody JsonVO deleteMovie(@RequestHeader(JsonCode.STRING_HEADER_VERSION) String restVersion, HttpServletRequest request, MovieVO vo) throws ServletException, IOException, Exception {
-        logger.info("getMovie Controller");
+    public @ResponseBody JsonVO deleteMovie(@RequestHeader(JsonCode.STRING_HEADER_VERSION) String restVersion, @RequestBody MovieVO vo) throws Exception {
+        logger.info("deleteMovie Controller");
  
         JsonVO jsonVO = new JsonVO(restVersion,JsonCode.RESCODE_SUCCESS);
         int result = movieService.deleteMovie(vo);

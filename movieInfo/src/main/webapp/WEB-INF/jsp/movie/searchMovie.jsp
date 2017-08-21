@@ -23,10 +23,15 @@
 				<nav>
 					<ul>
 						<li>
-							<div btnCommonUiMenu="setup" class="cursor_p" ">
-							<span>초기화</span>
-							<img src="images/common/navi_arrow_normal.png"/>
+							<div btnCommonUiMenu="bookmark" class="cursor_p" ">
+								<span>북마크</span>
+								<img src="images/common/navi_arrow_normal.png"/>
 							</div>
+							<div btnCommonUiMenu="reset" class="cursor_p" ">
+								<span>초기화</span>
+								<img src="images/common/navi_arrow_normal.png"/>
+							</div>
+							<br>
 						</li>
 					</ul>
 				</nav>

@@ -8,7 +8,6 @@ var commApiIp		= "";
 var commUserDateFormat;
 var commUserDateFormatString;
 var commUserTimeFormat;
-var commCtxPath		= "<c:out value='/movieInfo'/>";
 
 var _loadingModalObjext;
 var _loadingImageTimer;
@@ -558,8 +557,7 @@ var comm	= {
 			}
 			*/
 			var restVersion = {
-				'Rest-Version' : '1.0',
-				"Access-Control-Allow-Origin": "*"
+				'Rest-Version' : '1.0'
 			};
 			
 			var p = {
@@ -568,7 +566,7 @@ var comm	= {
 				data        : data,
 				headers		: restVersion, // 버전의 경우 개별 설정 가능
 				//dataType	: "json", // Intelligent Guess (xml, json, script, or html))
-				//contentType : 'application/json',	// contentType (default: 'application/x-www-form-urlencoded; charset=UTF-8')
+				contentType : contentType,	// contentType (default: 'application/x-www-form-urlencoded; charset=UTF-8')
 				async		: async,
 				cache 		: false,
 				success 	: function(json, textStatus, jqXHR) {

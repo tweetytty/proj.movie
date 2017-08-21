@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.sm.movieinfo.content.dao.MovieDAO">
+<mapper namespace="com.sm.movieinfo.movie.dao.MovieDAO">
  
     <resultMap type="MovieVO" id="movieResult">
         <id property="movieId" column="movie_id"/>
         <result property="title" column="title"/>
-        <result property="openDate" column="openDate"/>
+        <result property="openDate" column="open_date"/>
         <result property="age" column="age"/>
         <result property="duration" column="duration"/>
         <result property="genre" column="genre"/>
@@ -19,9 +19,9 @@
         <result property="ctime" column="ctime"/>
     </resultMap>
  
-    <select id="getAllMovie" resultMap="movieResult">
+    <select id="getMovieAll" resultMap="movieResult">
         SELECT
-            movie_id, title, openDate, age, duration,
+            movie_id, title, open_date, age, duration,
             genre, director, actor, nation, grades, story, img, ctime
         FROM
             tb_movie
@@ -30,7 +30,7 @@
  
     <select id="getMovie" parameterType="MovieVO" resultMap="movieResult">
         SELECT
-            movie_id, title, openDate, age, duration,
+            movie_id, title, open_date, age, duration,
             genre, director, actor, nation, grades, story, img, ctime
         FROM
             tb_movie
@@ -38,11 +38,12 @@
         	1=1
             <if test="movieId != -1"> AND movie_id=#{movieId}</if>
             <if test="title != null"> AND title=#{title}</if>
+            <if test="director != null"> AND director=#{director}</if>
     </select>
     
     <insert id="insertMovie" parameterType="MovieVO" useGeneratedKeys="true" keyProperty="movieId">
         INSERT INTO tb_movie
-            (title, openDate, age, duration, genre, 
+            (title, open_date, age, duration, genre, 
             director, actor, nation, grades, story, img, ctime)
         VALUES
             (#{title}, #{openDate}, #{age}, #{duration}, #{genre}, 
@@ -58,7 +59,9 @@
         DELETE FROM
             tb_movie
         WHERE
-            movie_id=#{movieId}
+            title=#{title}
+        AND 
+        	director=#{director}
     </delete>
  
 </mapper>

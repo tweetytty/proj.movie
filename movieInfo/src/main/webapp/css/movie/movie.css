@@ -119,3 +119,12 @@ input {
 
 .bottom_content2 span:hover{background: url(../../images/common/btn_bg_over_r_2.png) no-repeat; background-size: 180px 32px;}
 .bottom_content2 span:active{background: url(../../images/common/btn_bg_pressed_r_2.png) no-repeat; background-size: 180px 32px;}
+
+
+.bookmark_checkbox {
+	width: 50px;
+	height: 20px;
+	float: left;
+	z-index: 5;
+	padding: 40px 10px 0 0;
+}

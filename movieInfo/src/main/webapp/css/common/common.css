@@ -122,7 +122,7 @@ input[type='checkbox'] + label {
     clear: none;
 
     /* Left padding makes room for image */
-    padding: 5px 0 4px 24px;
+    padding: 40px 10px 0 0;
 
     /* Make look clickable because they are */
     cursor: pointer;
@@ -135,7 +135,7 @@ input[type='checkbox'][disabled][lock] + label {
     clear: none;
 
     /* Left padding makes room for image */
-    padding: 3px 0 4px 24px;
+    padding: 40px 10px 0 0;
 
     /* Make look clickable because they are */
     cursor: default;

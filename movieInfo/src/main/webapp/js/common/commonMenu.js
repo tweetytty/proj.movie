@@ -7,13 +7,6 @@ $(document).ready(function(){
 
 var menu = {
 	fnEventBind : function(){
-		//MAIN MENU UI 버튼 이벤트 
-		$("div[btnMainUiMenu]").each(function(){
-			var id = $(this).attr("btnMainUiMenu");
-			
-			//$(this).unbind('click').click(menu.goPageSelectTemplate);
-		});
-		
 		
 		//LEFT MENU UI 버튼 이벤트 
 		$("div[btnCommonUiMenu]").each(function(){
@@ -22,6 +15,10 @@ var menu = {
 			if(id == "home"){
 				$(this).unbind('click').click(function(){
 					window.location.reload();
+				});
+			}else if(id == "reset"){
+				$(this).unbind('click').click(function(){
+					MovieManager.deleteBookmarkAll();
 				});
 			}
 		});
