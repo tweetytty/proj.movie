@@ -1,6 +1,6 @@
 var ServerRequest = {  
 	SERVLET_HTTP_PATH : "/movieInfo",
-	DAUM_API_APIKEY : "8c2f9872be5b3dfaa08c8b23413dabc3",
+	DAUM_API_APIKEY : "892f6a0ff9729a02cad50674b4cf1f6d",
 	DAUM_API_MOVIE : "https://apis.daum.net/contents/movie?result=15&output=json",
 	
 	goSearchMovie : function(searchTitle){
