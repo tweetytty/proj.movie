@@ -53,8 +53,8 @@
 						 <option value="1">오래 된 등록 순</option>
 						 <option value="2">평점 높은 순</option>
 						 <option value="3">평점 낮은 순</option>
-						 <option value="4">제목 오름차순</option>
-						 <option value="5">제목 내림차순</option>
+						 <option value="4">제목 내림차순</option>
+						 <option value="5">제목 오름차순</option>
 					</select>
 				</div>
 			</div>

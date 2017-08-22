@@ -143,12 +143,12 @@ var comm	= {
 				htmlStr = htmlStr + "				<ul class='btn_bottom'>" + br;
 				htmlStr = htmlStr + "					<li class='btn_left'>" + br;
 				htmlStr = htmlStr + "						<div class='button_pop fnClose fnBtn1'>" + br;
-				htmlStr = htmlStr + "							<a>"+ param.btnText[1] +"</a>" + br;
+				htmlStr = htmlStr + "							<a>"+ param.btnText[0] +"</a>" + br;
 				htmlStr = htmlStr + "						</div>" + br;
 				htmlStr = htmlStr + "					</li>" + br;
 				htmlStr = htmlStr + "					<li class='btn_right'>" + br;
 				htmlStr = htmlStr + "						<div class='button_pop fnClose fnBtn0'>" + br;
-				htmlStr = htmlStr + "							<a>"+ param.btnText[0] +"</a>" + br;
+				htmlStr = htmlStr + "							<a>"+ param.btnText[1] +"</a>" + br;
 				htmlStr = htmlStr + "						</div>" + br;
 				htmlStr = htmlStr + "					</li>" + br;
 				htmlStr = htmlStr + "				</ul>" + br;

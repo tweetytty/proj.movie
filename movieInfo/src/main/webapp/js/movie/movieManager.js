@@ -155,8 +155,8 @@ var MovieManager = {
 		},
 		
 		deleteBookmarkAll : function(){	
-			comm.confirm("북마크를 초기화 하시겠습니까?",  function(){
-				ServerRequest.deleteBookmarkAll()}, null);	
+			comm.confirm("북마크를 초기화 하시겠습니까?",  null, function(){
+				ServerRequest.deleteBookmarkAll()});	
 		},
 		
 		goBookmark : function(){

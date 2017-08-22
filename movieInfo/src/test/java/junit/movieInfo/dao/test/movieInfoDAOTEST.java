@@ -2,8 +2,7 @@ package junit.movieInfo.dao.test;
 
 import java.util.List;
 
-import junit.framework.Assert;
-
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,20 +37,17 @@ public class movieInfoDAOTEST {
 		movieVO.setDirector("감독");
 		movieVO.setActor("출연자");
 		movieVO.setNation("국가");
-		movieVO.setGrades(10);
+		movieVO.setGrades(10.0d);
 		movieVO.setStory("영화내용");
 		movieVO.setImg("");
+		movieVO.setOrder(0);
 
 		
 		int result = movieDAO.insertMovie(movieVO);
 		Assert.assertTrue("movieVO insert", result > 0);
 		
-		List<MovieVO> movieList = movieDAO.getMovieList();
+		List<MovieVO> movieList = movieDAO.getMovieAll(movieVO);
 		Assert.assertTrue("movieVO selectAll", movieList.size() > 0);
-		
-		movieVO.setMovieId(1);
-		MovieVO movieVO2 = movieDAO.getMovie(movieVO);
-		Assert.assertTrue("movieVO select", movieVO.getTitle().equals(movieVO2.getTitle()));
 		
 		result = movieDAO.deleteMovie(movieVO);
 		Assert.assertTrue("movieVO delete", result > 0);
